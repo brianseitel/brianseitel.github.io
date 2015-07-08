@@ -12,7 +12,6 @@ links:
     icon:         fa-question 
   - name:         Blog
     url:          /
-    external:     true
     icon:         fa-pencil-square-o
   - name:         LinkedIn
     url:          https://www.linkedin.com/in/brianseitel
