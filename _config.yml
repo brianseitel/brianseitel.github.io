@@ -1,23 +1,27 @@
 title:            Oasis
 description:      You can bring a horse to water, but you can\t make him drink.
 url:              blog.brianseitel.com
-signoff:          Brian
+signoff:          -B
 disqus_shortname: # disqus comment thread for post header options. ( leave blank if unwanted. )
 facebook_appid:   # appid for like button, remove from /_includes/share.html if unwanted.
-google_analytics: # set tracking, remove from /javascripts/basic.js if unwanted.
+google_analytics: UA-4459653-8
 
 links:
   - name:         About
     url:          /about
+    icon:         fa-question 
   - name:         Blog
-    url:          http://blog.brianseitel.com
+    url:          /
     external:     true
-  - name:         Email
-    url:          mailto:brianseitel@gmail.com
+    icon:         fa-pencil-square-o
+  - name:         LinkedIn
+    url:          https://www.linkedin.com/in/brianseitel
     external:     true
+    icon:         fa-linkedin
   - name:         GitHub
     url:          http://github.com/brianseitel
     external:     true
+    icon:         fa-github-alt
 highlighter:      pygments
 permalink:        pretty
 markdown:         redcarpet

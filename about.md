@@ -1,10 +1,8 @@
 ---
 layout: page
-title: About
+title: Who Am I?
 ---
 
-Give people something to read and get to know you. Here's my attempt: this is [Mu-An](http://muan.co), a designer developer who lives in London at the moment.
+My name is **Brian**, and **I solve problems**. I have over seven years of experience in web development, working in industries ranging from futures markets to small business websites to online real estate! I love tackling the **big problems** — the ones everyone thinks are impossible. It lets me **flex my creative muscles** and get my hands dirty with machine learning, data processing algorithms, third-party APIs, and solid teamwork. The increasingly challenging nature of our industry keeps me on my toes!
 
-Tweet at [@muanchiou](http://twitter.com/muanchiou), read my code on [GitHub](http://github.com/muan), see my designs on [Dribbble](http://dribbble.com/muan), find my CV on [LinkedIn](http://uk.linkedin.com/in/muanchiou).
-
-This theme is made by me. You have a nice day. ♥
+When I'm not building the Next Big Thing ™, I enjoy **running** half-marathons, **cooking** fantastic food, and **writing** novels. I'm also passionate about the arts, fitness, and **saving the world**. I'm a certified scuba diver, am fluent in American Sign Language, and have a niece that is definitely cuter than yours.
