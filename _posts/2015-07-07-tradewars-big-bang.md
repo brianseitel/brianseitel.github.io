@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Remaking Tradewars - The Big Bang
+title: Remaking Tradewars
+subtitle: Part I - The Big Bang
 date: 2015-07-07 23:01:33
 disqus: n
 ---
@@ -95,7 +96,8 @@ We can update the algorithm to look something like this:
     create empty Universe
     fill Universe with K Sectors
     create empty Clusters
-    pick random number K (where NUM_SECTORS / MIN_CLUSTERS > K > 0)
+
+    while still available Sectors
         add Cluster C to Clusters list
         for 0..K (where K = rng(MIN_SECTORS_PER_CLUSTER, MAX_CLUSTERS_PER_SECTOR)
             for 1..J (where J = rng(MIN_NEIGHBORS, MAX_NEIGHBORS)
