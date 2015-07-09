@@ -112,14 +112,61 @@ In the above algorithm, you'll notice that S2 is added to S1's Neighbors list, b
 
 This also raises another possibility: are there any sectors that have been orphaned? Imagine the following scenario:
 
-```
-S1.Neighbors = [2,3,4]
-S2.Neighbors = [4,5,2]
-S3.Neighbors = [5,3]
-S4.Neighbors = [5]
-S5.Neighbors = [3,4]
-```
+<div id="cluster" style="width: 100%; height: 300px;"></div>
+
+<div id="options"></div>
 
 See the problem? Once we go from from S1 -> S2, we can't get back to S1 -- ever! Big problem!
 
 How do we solve this? Well, that's the $64,000 question. Tune in next time for the answer in Part II.
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'Sector 1', color: '#CACACA'},
+    {id: 2, label: 'Sector 2'},
+    {id: 3, label: 'Sector 3'},
+    {id: 4, label: 'Sector 4'},
+    {id: 5, label: 'Sector 5'},
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 2, arrows:'to'},
+    {from: 1, to: 3, arrows:'to'},
+    {from: 1, to: 4, arrows:'to'},
+    {from: 2, to: 4, arrows:'to'},
+    {from: 2, to: 5, arrows:'to'},
+    {from: 3, to: 5, arrows:'to, from'},
+    {from: 3, to: 2, arrows:'to, from'},
+    {from: 4, to: 5, arrows:'to, from'},
+  ]);
+
+  // create a network
+  var container = document.getElementById('cluster');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var network = new vis.Network(container, data, options);
+  var options = {
+    interaction: { 
+        dragNodes: false,
+        dragView: false,
+        zoomView: false,
+        keyboard: false
+    },
+    layout: {
+        randomSeed: 502998,
+        hierarchical: {
+            enabled: false,
+            levelSeparation: 100,
+            sortMethod: 'directed'
+        }
+    },
+    physics: {
+        enabled: true
+    }
+};
+  network.setOptions(options);
+</script>
