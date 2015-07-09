@@ -52,10 +52,16 @@ Now, the hard part is generating this. Let's try a naive algorithm and see what 
 ### First Pass Big Bang
 
 ```
+    # Define some constants
+    define NUM_SECTORS = 1000
+    define MIN_NEIGHBORS = 1
+    define MAX_NEIGHBORS = 4
+
+    # Begin Big Bang
     create empty Universe
-    fill Universe with W Sectors
+    fill Universe with NUM_SECTORS Sectors
     for each Sector as S:
-        for between 1 and 4 (random number of neighbors)
+        for 0..K (where K = rng(MIN_NEIGHBORS, MAX_NEIGHBORS))
             pick random Sector as N (where N != S)
             add to S.Neighbors list
 ```
@@ -77,13 +83,22 @@ The solution Tradewars came up with was to have a **Cluster** that contains near
 We can update the algorithm to look something like this:
 
 ```
+    # Define some constants
+    define NUM_SECTORS = 1000
+    define MIN_NEIGHBORS = 1
+    define MAX_NEIGHBORS = 4
+    define MIN_CLUSTERS  = 10
+    define MIN_SECTORS_PER_CLUSTER = 2
+    define MAX_SECTORS_PER_CLUSTER = 20
+
+    # Begin Big Bang
     create empty Universe
     fill Universe with K Sectors
     create empty Clusters
-    pick random number K (where 10 > K > 0)
+    pick random number K (where NUM_SECTORS / MIN_CLUSTERS > K > 0)
         add Cluster C to Clusters list
-        for 0..K (where 5 > K > 0, a random number of Sectors)
-            for 1..J (where 5 > J > 0, a random number of neighbors)
+        for 0..K (where K = rng(MIN_SECTORS_PER_CLUSTER, MAX_CLUSTERS_PER_SECTOR)
+            for 1..J (where J = rng(MIN_NEIGHBORS, MAX_NEIGHBORS)
                 pick random available Sector as N (where N != S)
                 add to S.Neighbors list
             add S to C.Sectors list
