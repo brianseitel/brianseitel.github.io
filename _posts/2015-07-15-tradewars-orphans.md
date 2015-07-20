@@ -6,7 +6,7 @@ date: 2015-07-16 11:23:45
 disqus: n
 ---
 
-**EDIT: I've actually come up with a better algorithm to ensure 100% connectivity. Please check Part III to see how I did it! The below search algorithms are still necessary, but for different reasons, so feel free to keep reading. Check Part III for the new algorithm, though!**
+**EDIT: I've actually come up with a better algorithm to ensure 100% connectivity. Please check [Part III](/2015/07/20/tradewars-orphans-revisited) to see how I did it! The below search algorithms are still necessary, but for different reasons, so feel free to keep reading. Check Part III for the new algorithm, though!**
 
 ### The Orphaned Sector Problem
 
