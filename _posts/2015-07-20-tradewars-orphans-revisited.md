@@ -44,7 +44,7 @@ Here's a recap of the algorithm itself:
 
 For a simple Universe, you might wind up with Sectors in a Cluster like this:
 
-<div id="cluster" style="width: 100%; height: 300px;"></div>
+<div id="orphans" style="width: 100%; height: 300px;"></div>
 
 <div id="options"></div>
 
@@ -151,6 +151,58 @@ If you're interested in exploring this a little more deeply, try modifying your 
 Tune in next time for more Tradewars-esque fun!
 
 Toodles!
+
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = new vis.DataSet([
+    {id: 1, label: 'Sector 1', color: '#CACACA'},
+    {id: 2, label: 'Sector 2'},
+    {id: 3, label: 'Sector 3'},
+    {id: 4, label: 'Sector 4'},
+    {id: 5, label: 'Sector 5'},
+  ]);
+
+  // create an array with edges
+  var edges = new vis.DataSet([
+    {from: 1, to: 2, arrows:'to'},
+    {from: 1, to: 3, arrows:'to'},
+    {from: 1, to: 4, arrows:'to'},
+    {from: 2, to: 4, arrows:'to'},
+    {from: 2, to: 5, arrows:'to'},
+    {from: 3, to: 5, arrows:'to, from'},
+    {from: 3, to: 2, arrows:'to, from'},
+    {from: 4, to: 5, arrows:'to, from'},
+  ]);
+
+  // create a network
+  var container = document.getElementById('orphans');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var network = new vis.Network(container, data, options);
+  var options = {
+    interaction: { 
+        dragNodes: false,
+        dragView: false,
+        zoomView: false,
+        keyboard: false
+    },
+    layout: {
+        randomSeed: 502998,
+        hierarchical: {
+            enabled: false,
+            levelSeparation: 100,
+            sortMethod: 'directed'
+        }
+    },
+    physics: {
+        enabled: true
+    }
+};
+  network.setOptions(options);
+</script>
 
 <script type="text/javascript">
   // create an array with nodes

@@ -58,9 +58,9 @@ How do we solve this? Well, that's the $64,000 question.
 
 The way to ensure that we have no orphaned sectors is to travel from each sector to every other sector. If we can make it from A -> B, A -> C, ..., A -> N, and then from B -> A, B -> C, ..., B -> N, and so on, then we have ensured that every Sector is reachable from every other Sector.
 
-Right off the bat, though, you can tell that this is a *very* inefficient algorithm. For N sectors, we're going to check every other sector N times, for O(n^2) complexity.
+Right off the bat, though, you can tell that this is a *very* inefficient algorithm. For N sectors, we're going to check every other sector N times, for O( n^2 ) complexity.
 
-There are two primary ways to search a graph like this. One is **depth-first search** and the other is **breadth-first search**. You can read the linked articles on Wikipedia for more information.
+There are two primary ways to search a graph like this. One is **[depth-first search](https://en.wikipedia.org/wiki/Depth-first_search)** and the other is **[breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)**. You can read the linked articles on Wikipedia for more information.
 
 #### Depth-First Search
 
