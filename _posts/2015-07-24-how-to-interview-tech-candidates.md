@@ -80,7 +80,7 @@ It sounds so obvious, but you would be *astonished* at how many people fail to d
 
 ### Number Two: Quick Intro of Company and/or Team
 
-Instead of just telling you what to do for this one, I'm going to give an example. I went to interview with [a company](http://intercom.io) fairly recently. They were all super nice. They catered lunch, I talked with the hiring manager. They're all incredibly smart.
+Instead of just telling you what to do for this one, I'm going to give an example. I went to interview with a company fairly recently. They were all super nice. They catered lunch, I talked with the hiring manager. They're all incredibly smart.
 
 But when it came to telling me what they did, they fumbled around a bit. The conversation went something like this:
 
@@ -125,7 +125,7 @@ How do you do that? Well, there are a million ways, but the key here is to do it
 
 If your candidate gets to spend an hour with you, and you take up the whole hour on whiteboard exercises, then you've wasted their time. They didn't get a chance to learn about you, and **you only evaluated their technical competency, and not anything else**. In short, it's a failure.
 
-Recently I interviewed with [another company](http://crunchyroll.com). They asked me to come in for a 5-hour interview. They had excelled on the top-of-the-funnel interactions, so I was excited to show up. Each of my interviewers came in, said their name, and then immediately started writing on the whiteboard. By the time we were done with the whiteboarding exercises, our time was up. They didn't get to learn more about me (see #4), and I didn't get to learn about them (see #5). In short, it was a complete waste of both of our time. 
+Recently I interviewed with another company. They asked me to come in for a 5-hour interview. They had excelled on the top-of-the-funnel interactions, so I was excited to show up. Each of my interviewers came in, said their name, and then immediately started writing on the whiteboard. By the time we were done with the whiteboarding exercises, our time was up. They didn't get to learn more about me (see #4), and I didn't get to learn about them (see #5). In short, it was a complete waste of both of our time. 
 
 This was *bad*, because their tech screens were some of the best I'd ever encountered. By completing the tasks set before me, I had completely and totally demonstrated that I know how to code. But instead of trusting those filters and quickly verifying them in person, they wasted all five hours of the interview trying to answer questions to which they already had complete information!
 
