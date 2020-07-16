@@ -21,7 +21,7 @@ links:
     url:          http://github.com/brianseitel
     external:     true
     icon:         fa-github-alt
-highlighter:      pygments
+highlighter:      rouge
 permalink:        pretty
 markdown:         redcarpet
 redcarpet:
