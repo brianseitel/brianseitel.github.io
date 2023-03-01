@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Snowflake IDs | The Gleeman&#39;s Tales</title>
+    <meta name="generator" content="Gleeman v1.0.0" />
+    <meta property="og:title" content="Snowflake IDs" />
+    <meta name="author" content="Brian Seitel" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="The Gleeman&#39;s Tales" />
+
+    
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/tale/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/tale/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/tale/assets/apple-touch-icon.png">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/">
+                <h2 class="nav-title">The Gleeman&#39;s Tales</h2>
+            </a>
+            
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="post">
+            <div class="post-info">
+                <span>Written by</span>
+
+                Brian Seitel
+                <br>
+                <span>on&nbsp;</span><time datetime="2017-03-29 00:00:00 +0000">2023-02-28</time>
+
+            </div>
+
+            <h1 class="post-title">Snowflake IDs</h1>
+            
+            <div class="post-line"></div>
+
+            <hr>
+
+<h2>The ID Problem</h2>
+
+<p>For a large part of the history of databases, developers have relied upon a tried-and-true method of generating primary keys: the auto-incrementing ID. The way this works is fairly simple and is exactly the way it sounds: every new row increments the ID by 1.</p>
+
+<ul>
+<li>Row 1 gets ID 1</li>
+<li>Row 2 gets ID 2</li>
+<li>Row 3 gets ID 3</li>
+<li>Row N gets ID N</li>
+</ul>
+
+<p>This works effectively forever, up until you hit MAXINT, which is somewhere around 2.1 billion for a 32-bit integer and virtually unlimited in the 64-bit space.</p>
+
+<p>As I mentioned, this works brilliantly... except for one thing: it makes IDs extremely predictable.</p>
+
+<p>What's wrong with that? Well, imagine that you are a malicious actor. You want to disrupt someone else's account. You create your own account, and you realize you are assigned User ID 5000. Maybe you see this in API responses, maybe it's in the URL, maybe it's explicitly defined on the account page somewhere. Regardless, you know you are user 5000.</p>
+
+<p>This gives you a bit of information, including but not limited to the following:</p>
+
+<ul>
+<li>There are at a minimum 5000 users</li>
+<li>You are the 5000th user</li>
+<li>There is presumably a user with an ID of 4999, 4998, 4997, 4996,... and so on</li>
+</ul>
+
+<p>Imagine you go to your Direct Messages page, then look at the network tab. You see a GET request to <code>/api/users/5000/messages</code>. In the response, you see an array of ostensibly private messages.</p>
+
+<p>&quot;Hmm,&quot; you think. &quot;What if I make an identical request and swap 5000 out for 4999?&quot;</p>
+
+<p>If the site hasn't taken the appropriate precautions, you may be able to see another user's &quot;private&quot; messages! No bueno.</p>
+
+<p>But even if they have solved for that, you still know they have 5000 users, and as perhaps a competitor, you may be able to glean additional information about the company's size, revenue, and growth based off of that number. Still not good for the company.</p>
+
+<h2>UUIDs and GUIDs</h2>
+
+<p>One possible way to solve this problem is to simply assign a UUID to each entity. Instead of an integer like 5000, you assign a UUID like <code>ba0f5a59-0299-47c9-9890-a71d6d82b191</code>. For UUIDs, this is basically guaranteed to be unique[0]. The length and complexity of the UUID means that guessing another user's UUID is exceedingly unlikely. Malicious attempts to scrape data would be easily detected.</p>
+
+<p>But there are problems with this approach. For one thing, it's a pretty complex thing to look at. What are each section? Is it useful to talk about User <code>ba0f5a59-0299-47c9-9890-a71d6d82b191</code> with other humans? When customers see an error message with UUIDs, is it easy for them to read them back to Customer Support?</p>
+
+<p>Not exactly.</p>
+
+<p>There's a time and place for UUIDs, but in this case, perhaps there's a better solution.</p>
+
+<h2>Snowflake IDs</h2>
+
+<p>Enter the Snowflake ID. First developed by <a href="https://en.wikipedia.org/wiki/Snowflake_ID">Twitter in July of 2010</a>, the Snowflake ID is a deterministic-but-pseudo-random 64-bit integer that is <em>roughly</em> sortable. We'll come back to that in a moment.</p>
+
+<p>There are 64 bits in a Snowflake ID. That is, in binary, there are sixty-four ones and zeroes back to back. This is a large enough space that we will practically never run out of integer space. The total number of possible values is 2^64, which is <strong>18,446,744,073,709,551,616</strong>. You could assign each person in the world a unique ID over 2 BILLION times before having to repeat a number. There are very few data sets in the real world that approach these kinds of numbers. Therefore, 64 bits is a pretty safe range of integers to use for an ID space like this.</p>
+
+<p>Because we're treating them as 64 bits and not a single integer, we can split up those bits into different roles. This is effectively how it works:</p>
+
+<h3>Timestamp</h3>
+
+<p>The first <strong>41</strong> bits are for the timestamp. As I mentioned earlier, Snowflake IDs are roughly sortable. The key to this is to ensure that the first 41 bits are time-based! As time goes on, this number goes higher and higher. That means an ID generated now should be <em>lower</em> than an ID generated 5 seconds from now.</p>
+
+<p>How granular is the time? Well, with 41 bits we can basically only get to milliseconds since epoch, which in human terms is milliseconds since January 1, 1970. Don't ask me why they picked that date. Just roll with it.</p>
+
+<h3>Machine ID</h3>
+
+<p>The next <strong>10</strong> bits are for the machine ID, which is unique per machine. This is something that helps prevent clashes.</p>
+
+<h3>Sequence Number</h3>
+
+<p>The next <strong>12</strong> bits are for the sequence number, which is also defined on a per-machine basis. If you have two servers generating IDs, this guarantees that if you have two IDs generated at the exact same millisecond, they'll wind up with different numbers. Very important.</p>
+
+<h3>The Lost Bit??</h3>
+
+<p>Savvy readers will notice that 41+10+12=<strong>63</strong>, so we appear to be missing a bit. That initial bit is reserved for signed vs unsigned integers. Technically, it's a 63-bit integer with a 1-bit positive-or-negative sign.</p>
+
+<h3>The Final Number</h3>
+
+<p>Now you append each section to each other, so now you wind up with 1+41+10+12 = 64 bits. Then we can take those 64 bits and convert into an integer. And that's our Snowflake ID!</p>
+
+<h2>How to Do it</h2>
+
+<p>Now that we know how Snowflake IDs are generated, let's write some code to do it.</p>
+
+<p>```go
+func</p>
+
+        </div>
+    </main>
+
+<footer>
+    <span>
+        &copy; <time datetime="2023-03-01T13:16:56-08:00">2023</time> All rights reserved.
+    </span>
+</footer>
+</body>
+
+</html>

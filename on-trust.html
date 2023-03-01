@@ -1,0 +1,142 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>On Trust | The Gleeman&#39;s Tales</title>
+    <meta name="generator" content="Gleeman v1.0.0" />
+    <meta property="og:title" content="On Trust" />
+    <meta name="author" content="Brian Seitel" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="The Gleeman&#39;s Tales" />
+
+    
+    <link rel="stylesheet" href="assets/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/tale/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/tale/assets/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/tale/assets/apple-touch-icon.png">
+</head>
+
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/">
+                <h2 class="nav-title">The Gleeman&#39;s Tales</h2>
+            </a>
+            
+        </div>
+    </nav>
+
+
+    <main>
+        <div class="post">
+            <div class="post-info">
+                <span>Written by</span>
+
+                Brian Seitel
+                <br>
+                <span>on&nbsp;</span><time datetime="2017-03-29 00:00:00 +0000">2023-02-27</time>
+
+            </div>
+
+            <h1 class="post-title">On Trust</h1>
+            
+            <div class="post-line"></div>
+
+            <hr>
+
+<h1>On Trust</h1>
+
+<p>They say that the most important ingredient in any relationship is trust. It's hard to argue otherwise. How can you have a fulfilling relationship with anyone, if you can't trust anything they say or do? If their actions contradict their words, how can you believe them?</p>
+
+<p>This is often spoken in the context of interpersonal relationships, and more specifically romantic ones.</p>
+
+<p>That said, it also applies to organizational relationships.</p>
+
+<p>In my current role, there is a huge lack of trust between the Engineering organization and The Business(TM). Over the last 12 years of the company's existence, the Engineering team has struggled to deliver strong, robust features to customers. They've struggled so mightily that for many years The Business micromanaged the Engineering organization. They had weekly status update meetings, and while on paper Engineering was a separate organization, in practice the VPs behaved as if they reported to the Head of Marketing, a strong and very capable woman -- albeit not an engineering leader.</p>
+
+<p>Trust had eroded over the course of several years to the point where Marketing was the driving force behind what was ostensibly a tech company.</p>
+
+<p>About 20 months ago, I joined. This was perhaps the first dynamic I identified. Within days, I could see that there was no strategic vision, simply a willingness to do whatever Marketing asked.</p>
+
+<p>This led to a series of problems that cascaded into a tsunami that ultimately exacerbated the problem altogether: without a solid technical foundation and strong tech-oriented leadership, the entire codebase was a series of hacks and poorly thought out executions on feature work.</p>
+
+<p>It took almost a year for that to change. The tech leadership left, and a new order, including myself, took up the mantle of leadership.</p>
+
+<p>Our first order of business: re-establish trust.</p>
+
+<h2>The Stack Rank</h2>
+
+<p>There are many tools that can help with organizational success, but in my view, the biggest problem we had was that Engineering was purely reactionary. We didn't have a plan, and more importantly, we didn't have a strategy. Our prioritization method was what I called The Loudest in the Room. In other words, the last person to run in screaming that their thing was important <em>became</em> the most important thing.</p>
+
+<p>That clearly isn't going to scale.</p>
+
+<p>I partnered up with the Senior Director of Product and we introduced a Stack Rank to the organization. We compiled a list of every feature request that came in, and we ranked them in order of priority, from top to bottom.</p>
+
+<p>How you determine priority is a touchy subject, but to keep things as objective as possible, we prioritized on two axes: importance and urgency. Importance is a shorthand for money. If it made us a lot of money, it was important. If it didn't make us any money at all, it was not important. Urgency, on the other hand, is time-based. If we don't do X within Y weeks, we will have Big Problems (TM), and that makes it urgent. If there's no time component, then it's not urgent.</p>
+
+<p>Our list started out with 150 items on it. We prioritized the top 35, and then the hard part started: convincing the teams and the business that these were, indeed, the most important tasks.</p>
+
+<h2>The Swarm</h2>
+
+<p>Prior to my joining the company, the strategy had been what my Product partner dubs the Peanut Butter Approach. We spread our team out across every project imaginable. Each engineer had two, three, even four projects to manage at any given time. Context switching was hell, and post-mortems and ROI calculations were all but impossible.</p>
+
+<p>One of the major changes I implemented in my organization was to swarm on the big projects. I decided to maximally staff the most important project.</p>
+
+<p>I had twenty-five engineers at my disposal. But few projects are sustainable with that many engineers focused on a single project, so I worked with the managers and determined what the maximal staffing level was. For most projects, it was somewhere between 4 and 6 engineers -- <a href="https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/two-pizza-teams.html">a two pizza team</a>.</p>
+
+<p>The goal was to swarm on the most important projects and finish them as fast as possible. Get them out into production and start reaping the benefits. Then take those engineers and swarm on the next big project.</p>
+
+<p>This worked <em>phenomenally</em>. We shipped more features in Q3 and Q4 of 2022 than we had in the previous year combined.</p>
+
+<h2>The Final Exam</h2>
+
+<p>Our business is in the e-commerce space, and specifically, we specialize in products that are in high demand during the holiday season. At least fifty percent (50%!) of our annual revenue occurs in just three weeks in Q4, between Thanksgiving and Christmas.</p>
+
+<p>That's... a lot.</p>
+
+<p>It also means that we cannot screw up. We cannot have downtime. We cannot have bugs.</p>
+
+<p>Due to the lack of trust in prior years, we would go into a code freeze at the beginning of November and stay in it until January. Only bug fixes were allowed to ship during that time, and even then, we valued stability over properly working code.</p>
+
+<p>The Business (TM) understandably panicked the closer we got to Thanksgiving, and in return, the Engineering and Product teams panicked, too.</p>
+
+<p>But not in 2022. In 2022, because we identified Q4 stability as a number one initiative, we swarmed almost half of our organization on alerting, bug fixes, DB query optimization, and more. We spent late Q3 and early Q4 tightening up our systems, hitting our servers with peak load to ensure we could stand up to that Black Friday and Cyber Monday traffic, and we tested everything out the wazoo.</p>
+
+<p>Our goal: to build trust with The Business(TM) that we could stand up to peak traffic without a problem.</p>
+
+<p>Because of our swarming on these, we were able to build confidence within our own teams that things would be better. We could see graphs and raw numbers that showed our performance was better than previous years. Exceptions would blow up in our faces, instead of silently surfacing in New Relic and not seen for days.</p>
+
+<p>When Q4 came, the office was silent. Our code freeze began, and we... didn't have a whole lot to do.</p>
+
+<p>We passed the test.</p>
+
+<h2>Freedom</h2>
+
+<p>Marketing saw our progress, they saw our commitment and ability to execute, and they stepped back. They let us prioritize our list and bring it to them.</p>
+
+<p>As Q4 went smoothly, we were able to take most of our engineers and put them on actual feature work -- things at the top of our stack rank! Instead of putting out fires, our engineers were executing on the company's vision.</p>
+
+<p>We were making progress. And more importantly, we achieved a certain degree of freedom that had been missing. Instead of being micromanaged by Marketing, Engineering came into its own.</p>
+
+<h2>The Future</h2>
+
+<p>We are still in the early days of this newfound freedom. We are constantly updating our stack rank, constantly evaluating which projects are more important than others. But a few things remain the same: we swarm on the most important things, we prioritize ruthlessly, and above all, we aim to earn the trust of the reset of our company.</p>
+
+<p>So far, so good.</p>
+
+        </div>
+    </main>
+
+<footer>
+    <span>
+        &copy; <time datetime="2023-03-01T13:21:47-08:00">2023</time> All rights reserved.
+    </span>
+</footer>
+</body>
+
+</html>
