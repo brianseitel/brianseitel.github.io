@@ -1,112 +1,621 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Brian Seitel</title>
-  <style>
-    html {
-      height: 95%
-    }
+<title>🎪 BRIAN SEITEL - THE CODING CIRCUS MASTER! 🎪</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="🚀 GOLANG WIZARD! ELASTICSEARCH SORCERER! NOVEL-WRITING MANIAC! RUNNING MACHINE! PODCAST LEGEND! 🚀">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=Bungee&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
 
-    body {
-      height: 95%;
-      min-height: 100%;
-      text-align: center;
-      color: #401919
-    }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-    .container {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center
-    }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 
-    .item .greeting {
-      margin: 0 auto;
-      font-size: 15px;
-      font-variant: small-caps;
-      font-family: 'Cinzel', sans-serif
-    }
+@keyframes rainbow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    .item .name {
-      font-family: 'Fjalla One', serif;
-      margin: 0 auto
-    }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
 
-    .item .about {
-      margin: 25px auto
-    }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(45deg, #ff0066, #ff6600, #ffcc00, #00ff66, #0066ff, #6600ff, #ff0066);
+  background-size: 400% 400%;
+  animation: rainbow 3s ease infinite;
+  color: #ffffff;
+  text-align: center;
+  overflow-x: hidden;
+}
 
-    .item .attributes {
-      margin: 0 auto;
-      font-family: 'Cinzel', sans-serif
-    }
+/* Floating shapes background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    radial-gradient(circle at 20% 10%, #ff69b4 20px, transparent 20px),
+    radial-gradient(circle at 80% 20%, #00ffff 15px, transparent 15px),
+    radial-gradient(circle at 40% 70%, #ffff00 25px, transparent 25px),
+    radial-gradient(circle at 90% 80%, #ff4500 18px, transparent 18px),
+    radial-gradient(circle at 10% 90%, #32cd32 22px, transparent 22px);
+  animation: float 4s ease-in-out infinite;
+}
 
-    .item ul {
-      padding: 0;
-      list-style-type: none;
-      margin: auto
-    }
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  animation: bounce 2s infinite;
+  z-index: 1;
+}
 
-    .item li {
-      float: left;
-      padding: 0 15px
-    }
+.shape-1 {
+  top: 10%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  background: #ffff00;
+  animation: bounce 2s infinite, spin 3s linear infinite;
+}
 
-    .item .links li {
-      width: 165px;
-      font-family: 'Cinzel', sans-serif;
-    }
+.shape-2 {
+  top: 20%;
+  right: 15%;
+  width: 60px;
+  height: 60px;
+  background: #ff69b4;
+  border-radius: 0;
+  transform: rotate(45deg);
+  animation: spin 4s linear infinite;
+}
 
-    .item .links a {
-      color: #6e3636;
-    }
-  </style>
+.shape-3 {
+  bottom: 30%;
+  left: 20%;
+  width: 100px;
+  height: 100px;
+  background: #00ffff;
+  animation: pulse 2s infinite;
+}
 
-  <link rel="canonical" href="https://brianseitel.com" />
+.shape-4 {
+  top: 50%;
+  right: 10%;
+  width: 70px;
+  height: 70px;
+  background: #32cd32;
+  animation: bounce 1.5s infinite;
+}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description"
-    content="golang guru. elasticsearch consultant. runner. writer of novels. podcast host. one man, many facets: brian seitel.">
+.shape-5 {
+  bottom: 20%;
+  right: 30%;
+  width: 90px;
+  height: 90px;
+  background: #ff4500;
+  border-radius: 20%;
+  animation: spin 2.5s linear infinite;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.greeting {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
+  animation: bounce 2s infinite;
+}
+
+.name {
+  font-family: 'Bungee', cursive;
+  font-size: 4.5rem;
+  margin: 0.5em 0;
+  background: linear-gradient(45deg, #ff0066, #ff6600, #ffcc00, #00ff66, #0066ff, #6600ff, #ff0066);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbow 2s ease infinite, pulse 3s infinite;
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+  transform: rotate(-2deg);
+}
+
+.title-container {
+  background: linear-gradient(135deg, #ff69b4, #00bfff, #32cd32, #ffd700);
+  border: 8px solid #ffffff;
+  border-radius: 50px;
+  padding: 2rem;
+  margin: 2rem auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: rotate(1deg);
+  animation: float 4s ease-in-out infinite;
+  max-width: 800px;
+}
+
+.about {
+  margin: 3em 0;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  color: #000;
+  padding: 2rem;
+  border-radius: 30px;
+  border: 6px solid #ff69b4;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transform: rotate(-1deg);
+  animation: pulse 4s infinite;
+}
+
+.attributes {
+  margin: 1em 0;
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #ff0066;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: bounce 3s infinite;
+}
+
+.attributes:nth-child(2) { animation-delay: 0.5s; }
+.attributes:nth-child(3) { animation-delay: 1s; }
+.attributes:nth-child(4) { animation-delay: 1.5s; }
+
+.intro-text {
+  font-size: 1.8rem;
+  color: #8b00ff;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(255,255,255,0.3);
+  margin-bottom: 1.5rem;
+  animation: bounce 2.5s infinite;
+}
+
+ul.links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 3em;
+}
+
+.links li {
+  transform: rotate(2deg);
+  animation: float 3s ease-in-out infinite;
+}
+
+.links li:nth-child(2) { 
+  transform: rotate(-3deg); 
+  animation-delay: 0.5s;
+}
+
+.links li:nth-child(3) { 
+  transform: rotate(1deg); 
+  animation-delay: 1s;
+}
+
+.links li:nth-child(4) { 
+  transform: rotate(-2deg); 
+  animation-delay: 1.5s;
+}
+
+.links a {
+  display: inline-block;
+  padding: 1.5em 2em;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #ff69b4, #00bfff, #32cd32, #ffd700);
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: 4px solid #ffffff;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.links a::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.6s;
+  opacity: 0;
+}
+
+.links a:hover {
+  transform: scale(1.2) rotate(5deg);
+  background: linear-gradient(135deg, #ffd700, #ff69b4, #00bfff, #32cd32);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  animation: pulse 0.5s infinite;
+}
+
+.links a:hover::before {
+  opacity: 1;
+  left: 100%;
+}
+
+/* Emoji decorations */
+.emoji {
+  font-size: 2rem;
+  display: inline-block;
+  animation: spin 3s linear infinite;
+  margin: 0 10px;
+}
+
+.dancing-emoji {
+  animation: bounce 1s infinite;
+}
+
+/* Special effects */
+.sparkle {
+  position: absolute;
+  color: #ffd700;
+  font-size: 1.5rem;
+  animation: spin 2s linear infinite, float 3s ease-in-out infinite;
+  z-index: 5;
+}
+
+.sparkle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+.sparkle-2 { top: 30%; right: 15%; animation-delay: 0.5s; }
+.sparkle-3 { bottom: 40%; left: 20%; animation-delay: 1s; }
+.sparkle-4 { top: 60%; right: 25%; animation-delay: 1.5s; }
+
+.bio-section {
+  margin: 4rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bio-card {
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  border: 4px solid #ff69b4;
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: rotate(1deg);
+  animation: float 4s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+.bio-card:nth-child(2) {
+  transform: rotate(-1deg);
+  animation-delay: 0.5s;
+  border-color: #00bfff;
+}
+
+.bio-card:nth-child(3) {
+  transform: rotate(0.5deg);
+  animation-delay: 1s;
+  border-color: #32cd32;
+}
+
+.bio-card:nth-child(4) {
+  transform: rotate(-0.8deg);
+  animation-delay: 1.5s;
+  border-color: #ffd700;
+}
+
+.bio-card:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.bio-card h3 {
+  font-size: 1.4rem;
+  color: #ff0066;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  font-weight: 800;
+}
+
+.bio-card p {
+  color: #333;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .bio-section {
+    grid-template-columns: 1fr;
+    margin: 3rem 1rem;
+  }
+  
+  .bio-card {
+    padding: 1.5rem;
+  }
+  .name {
+    font-size: 2.8rem;
+  }
+  .links {
+    flex-direction: column;
+    align-items: center;
+  }
+  .links li {
+    width: 80%;
+  }
+  .greeting {
+    font-size: 1.5rem;
+  }
+  .about {
+    font-size: 1.1rem;
+  }
+}
+
+/* Party mode flashing */
+@keyframes party-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.party-mode {
+  animation: party-flash 0.5s infinite, rainbow 1s ease infinite;
+}
+</style>
 </head>
-</head>
-
 <body>
-  <div class="container">
-    <div class="item">
-      <h4 class="greeting">Hi there! My name is</h4>
-      <h1 class="name">Brian Seitel</h1>
 
-      <div class="about">
-        <p class="attributes">
-          VP of Engineering
-        </p>
-        <p class="attributes">
-          Writer of Novels &middot;
-          Avid Runner
-        </p>
-        <p class="attributes">
-          Golang Guru &middot;
-          Elasticsearch Consultant &middot;
-          Podcast Host
-        </p>
-      </div>
+<!-- Floating background shapes -->
+<div class="floating-shape shape-1"></div>
+<div class="floating-shape shape-2"></div>
+<div class="floating-shape shape-3"></div>
+<div class="floating-shape shape-4"></div>
+<div class="floating-shape shape-5"></div>
 
-      <div class="links">
-        <ul>
-          <li><a href="/blog" rel="noreferrer">Blog</a></li>
-          <li><a href="https://github.com/brianseitel" rel="noreferrer" target="_blank" aria-label="Github">Github</a>
-          </li>
-          <li><a href="https://www.linkedin.com/in/brianseitel/" rel="noreferrer" target="_blank"
-              aria-label="LinkedIn">LinkedIn</a< /li>
-          <li><a href="https://podcasts.apple.com/us/podcast/barside-chats/id1514279980" rel="noreferrer"
-              target="_blank" aria-label="Podcast">Podcast</a></li>
-        </ul>
-      </div>
+<!-- Sparkle effects -->
+<div class="sparkle sparkle-1">✨</div>
+<div class="sparkle sparkle-2">⭐</div>
+<div class="sparkle sparkle-3">💫</div>
+<div class="sparkle sparkle-4">🌟</div>
+
+<div class="container">
+  <div class="title-container">
+    <p class="greeting">
+      <span class="emoji dancing-emoji">🎪</span>
+      BEHOLD THE MAGNIFICENT
+      <span class="emoji dancing-emoji">🎪</span>
+    </p>
+    
+    <h1 class="name">BRIAN SEITEL</h1>
+    
+    <div class="intro-text">
+      <span class="emoji">🚀</span>
+      THE ULTIMATE CODING CIRCUS MASTER!
+      <span class="emoji">🚀</span>
     </div>
   </div>
-  <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Cinzel' rel='stylesheet' type='text/css'>
-</body>
 
+  <div class="about">
+    <p class="attributes">
+      <span class="emoji dancing-emoji">🚀</span>
+      SR DIRECTOR OF ENGINEERING AT MINTED!
+      <span class="emoji dancing-emoji">💳</span>
+    </p>
+    <p class="attributes">
+      <span class="emoji dancing-emoji">📚</span>
+      AUTHOR OF "THE REVOLVER SQUAD: A SERIES OF MISADVENTURES" 
+      <span class="emoji dancing-emoji">✨</span>
+      FANTASY MASTERPIECE!
+    </p>
+    <p class="attributes">
+      <span class="emoji dancing-emoji">🏃‍♂️</span>
+      HALF-MARATHON RUNNING MACHINE 
+      <span class="emoji dancing-emoji">13.1</span>
+      MILES OF PURE DETERMINATION!
+    </p>
+    <p class="attributes">
+      <span class="emoji dancing-emoji">⚡</span>
+      70+ ENGINEERS MANAGED 
+      <span class="emoji dancing-emoji">🔍</span>
+      ELASTICSEARCH SORCERER
+      <span class="emoji dancing-emoji">📊</span>
+      $10M/DAY SYSTEMS!
+    </p>
+    <p class="attributes">
+      <span class="emoji dancing-emoji">🎙️</span>
+      HOST OF "BARSIDE CHATS" PODCAST
+      <span class="emoji dancing-emoji">🍺</span>
+      WHERE WHEEL OF TIME MEETS TAVERN TALK!
+    </p>
+  </div>
+
+  <!-- NEW BIO SECTION -->
+  <div class="bio-section">
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">🚀</span>
+        THE MINTED LEGEND!
+        <span class="emoji">💳</span>
+      </h3>
+      <p>Sr Director at Minted overseeing 70+ engineers! Built a Cart & Checkout system handling $10M/DAY in peak traffic with ~40ms response time. Modernized a 10-year legacy monolith into cloud-native microservices like a BOSS! 💪</p>
+    </div>
+    
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">🔍</span>
+        THE SHIPT SEARCH WIZARD!
+        <span class="emoji">⚡</span>
+      </h3>
+      <p>Founded the Search team at Shipt and architected Elasticsearch systems powering 85%+ of all orders! Built APIs handling 20,000+ RPS on just THREE instances - saving MILLIONS in infrastructure costs! 🤯</p>
+    </div>
+    
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">📖</span>
+        LITERARY LEGEND!
+        <span class="emoji">🌟</span>
+      </h3>
+      <p>Crafted "The Revolver Squad" - a fantasy novel that'll make you BELIEVE in magic! When not scaling distributed systems, I'm weaving tales that transport readers to other worlds! ✨</p>
+    </div>
+    
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">🎯</span>
+        TEAM BUILDING MASTER!
+        <span class="emoji">🏆</span>
+      </h3>
+      <p>Mentored 70+ engineers across Minted and Shipt with 10+ promoted to leadership roles! From Zillow's fraud-fighting systems to Guidebox's OTT platform serving Turner, WWE, and Apple TV - I build teams AND systems that SCALE! 🚀</p>
+    </div>
+    
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">🏃‍♂️</span>
+        RUNNING & PODCASTING LEGEND!
+        <span class="emoji">🎙️</span>
+      </h3>
+      <p>Half-marathon runner AND "Barside Chats" podcast host! Because conquering 13.1 miles and hosting epic fantasy conversations both require ENDURANCE and PASSION! From the pavement to the podcast booth! 🏃‍♂️🎧</p>
+    </div>
+
+
+    <div class="bio-card">
+      <h3>
+        <span class="emoji">😂</span>
+        COMEDY CODING GENIUS!
+        <span class="emoji">🎭</span>
+      </h3>
+      <p>They say debugging is like being a detective in a crime movie where YOU'RE also the murderer! I bring that same energy to engineering leadership - turning stressful deployments into laugh-out-loud moments and making code reviews actually FUN! 🤣</p>
+    </div>
+  </div>
+
+  <ul class="links">
+    <li>
+      <a href="/blog">
+        <span class="emoji dancing-emoji">📝</span>
+        EPIC BLOG
+        <span class="emoji dancing-emoji">🌈</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/brianseitel" target="_blank" rel="noreferrer">
+        <span class="emoji dancing-emoji">💻</span>
+        GITHUB MAGIC
+        <span class="emoji dancing-emoji">⭐</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/in/brianseitel/" target="_blank" rel="noreferrer">
+        <span class="emoji dancing-emoji">💼</span>
+        LINKEDIN FUN
+        <span class="emoji dancing-emoji">🎉</span>
+      </a>
+    </li>
+    <li>
+      <a href="https://podcasts.apple.com/us/podcast/barside-chats/id1514279980" target="_blank" rel="noreferrer">
+        <span class="emoji dancing-emoji">🎧</span>
+        PODCAST PARTY
+        <span class="emoji dancing-emoji">🎪</span>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<script>
+// Add some interactive chaos!
+let partyMode = false;
+
+// Random party mode activation
+setInterval(() => {
+  partyMode = !partyMode;
+  document.body.classList.toggle('party-mode', partyMode);
+}, 3000);
+
+// Click effects
+document.addEventListener('click', function(e) {
+  // Create explosion of emojis
+  const emojis = ['🎉', '✨', '🌈', '⚡', '🚀', '🎪', '💥', '🎊'];
+  for (let i = 0; i < 5; i++) {
+    const emoji = document.createElement('div');
+    emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+    emoji.style.position = 'fixed';
+    emoji.style.left = e.clientX + (Math.random() - 0.5) * 100 + 'px';
+    emoji.style.top = e.clientY + (Math.random() - 0.5) * 100 + 'px';
+    emoji.style.fontSize = '2rem';
+    emoji.style.zIndex = '1000';
+    emoji.style.pointerEvents = 'none';
+    emoji.style.animation = 'float 2s ease-out forwards';
+    document.body.appendChild(emoji);
+    
+    setTimeout(() => {
+      emoji.remove();
+    }, 2000);
+  }
+});
+
+// Konami code for extra chaos
+let konamiCode = [];
+const konamiSequence = [
+  'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+  'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+  'KeyB', 'KeyA'
+];
+
+document.addEventListener('keydown', function(e) {
+  konamiCode.push(e.code);
+  if (konamiCode.length > konamiSequence.length) {
+    konamiCode.shift();
+  }
+  
+  if (konamiCode.join(',') === konamiSequence.join(',')) {
+    // ULTIMATE CHAOS MODE!
+    document.body.style.animation = 'rainbow 0.1s ease infinite, spin 5s linear infinite';
+    alert('🎪 ULTIMATE CHAOS MODE ACTIVATED! 🎪');
+    setTimeout(() => {
+      document.body.style.animation = '';
+    }, 10000);
+    konamiCode = [];
+  }
+});
+</script>
+
+</body>
 </html>
