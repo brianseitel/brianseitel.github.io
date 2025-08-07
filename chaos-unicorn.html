@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Brian Seitel - Cosmic Fantasy Engineer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Brian Seitel: Where unicorns and dragons code in the cosmos. VP of Engineering, fantasy novelist, and cosmic runner exploring the intersection of technology and imagination.">
+    <link rel="canonical" href="https://brianseitel.com" />
+    <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap' rel='stylesheet'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cosmic-dark: #0B0D17;
+            --cosmic-mid: #1A1B2E;
+            --cosmic-accent: #6C63FF;
+            --cosmic-pink: #E91E63;
+            --cosmic-cyan: #00BCD4;
+            --cosmic-gold: #FFB300;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B3B3CC;
+            --text-muted: #8B8BA3;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--cosmic-dark);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-primary);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Subtle animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 20%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(233, 30, 99, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 60%, rgba(0, 188, 212, 0.05) 0%, transparent 50%);
+            animation: cosmicShift 30s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        @keyframes cosmicShift {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+            50% { transform: scale(1.1) rotate(180deg); opacity: 1; }
+        }
+
+        /* Minimal stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            background: var(--text-secondary);
+            border-radius: 50%;
+            animation: twinkle 4s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* Floating orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1;
+            filter: blur(1px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb:nth-child(1) { 
+            width: 4px; height: 4px; 
+            background: var(--cosmic-accent);
+            top: 20%; left: 10%;
+        }
+        .orb:nth-child(2) { 
+            width: 6px; height: 6px; 
+            background: var(--cosmic-pink);
+            top: 60%; left: 80%;
+            animation-delay: -8s;
+        }
+        .orb:nth-child(3) { 
+            width: 3px; height: 3px; 
+            background: var(--cosmic-cyan);
+            top: 80%; left: 20%;
+            animation-delay: -15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.4; }
+            33% { transform: translateY(-20px) translateX(10px); opacity: 1; }
+            66% { transform: translateY(10px) translateX(-15px); opacity: 0.7; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .main-content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 700;
+            line-height: 0.9;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, 
+                var(--text-primary) 0%, 
+                var(--cosmic-accent) 40%, 
+                var(--cosmic-pink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--cosmic-accent), var(--cosmic-pink));
+            border-radius: 1px;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+
+        .role {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--cosmic-accent);
+            backdrop-filter: blur(20px);
+            margin-bottom: 48px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .about-section h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .about-section h3::before {
+            content: '✦';
+            position: absolute;
+            left: -24px;
+            color: var(--cosmic-gold);
+            font-size: 1rem;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .skills-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .skill-icon {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--cosmic-pink);
+            flex-shrink: 0;
+        }
+
+        .interests-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .interest-tag {
+            padding: 8px 16px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .interest-tag:hover {
+            background: var(--glass-border);
+            color: var(--text-primary);
+            transform: translateY(-2px);
+        }
+
+        .links-section {
+            text-align: center;
+        }
+
+        .links-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            list-style: none;
+        }
+
+        .cosmic-link {
+            display: block;
+            padding: 20px 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cosmic-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(108, 99, 255, 0.1), 
+                rgba(233, 30, 99, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cosmic-link:hover {
+            transform: translateY(-4px);
+            border-color: var(--cosmic-accent);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+        }
+
+        .cosmic-link:hover::before {
+            opacity: 1;
+        }
+
+        .link-icon {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .link-text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .link-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Subtle creature animations */
+        .cosmic-creature {
+            position: fixed;
+            font-size: 1.5rem;
+            opacity: 0.6;
+            animation: drift 40s linear infinite;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .cosmic-creature:nth-child(1) {
+            top: 10%;
+            animation-delay: 0s;
+        }
+
+        .cosmic-creature:nth-child(2) {
+            top: 70%;
+            animation-delay: -20s;
+        }
+
+        @keyframes drift {
+            0% { transform: translateX(-100px); }
+            100% { transform: translateX(calc(100vw + 100px)); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .skills-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .hero-section {
+                margin-bottom: 60px;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-grid {
+                gap: 32px;
+                margin-bottom: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Subtle background elements -->
+    <div class="stars" id="stars"></div>
+    
+    <!-- Floating orbs -->
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+
+    <!-- Subtle creature animations -->
+    <div class="cosmic-creature">🦄</div>
+    <div class="cosmic-creature">🐉</div>
+
+    <div class="container">
+        <div class="main-content">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <p class="intro-text">Hello, I'm</p>
+                <h1 class="name">Brian Seitel</h1>
+                <p class="tagline">Where code meets cosmos & dragons dance with data</p>
+                <div class="role">VP of Engineering</div>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="content-grid">
+                <div class="about-section">
+                    <h3>About</h3>
+                    <p class="about-text">
+                        I architect digital universes by day and craft epic tales by night. 
+                        When not summoning microservices from the ethereal planes of Go, 
+                        you'll find me traversing dimensional portals (running trails) or 
+                        broadcasting wisdom across cosmic airwaves.
+                    </p>
+                    
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Golang Wizard</span>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Elasticsearch Sorcerer</span>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Fantasy Novelist</span>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Podcast Conjurer</span>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Cosmic Runner</span>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-icon"></div>
+                            <span>Digital Dreamweaver</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="interests-section">
+                    <h3>Realms of Interest</h3>
+                    <div class="about-text">
+                        I believe the best software is written with the wonder of a child 
+                        discovering magic and the precision of an ancient wizard mastering spells.
+                    </div>
+                    <div class="interests-section">
+                        <div class="interest-tag">Distributed Systems</div>
+                        <div class="interest-tag">Epic Fantasy</div>
+                        <div class="interest-tag">Trail Running</div>
+                        <div class="interest-tag">Microservices</div>
+                        <div class="interest-tag">Worldbuilding</div>
+                        <div class="interest-tag">Leadership</div>
+                        <div class="interest-tag">Search Technology</div>
+                        <div class="interest-tag">Storytelling</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links Section -->
+            <div class="links-section">
+                <h3>Connect Across the Cosmos</h3>
+                <ul class="links-grid">
+                    <li>
+                        <a href="/blog" class="cosmic-link" rel="noreferrer">
+                            <div class="link-icon">📝</div>
+                            <div class="link-text">Sacred Scrolls</div>
+                            <div class="link-title">Blog</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/brianseitel" class="cosmic-link" rel="noreferrer" target="_blank" aria-label="Github">
+                            <div class="link-icon">⚡</div>
+                            <div class="link-text">Code Nexus</div>
+                            <div class="link-title">GitHub</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/brianseitel/" class="cosmic-link" rel="noreferrer" target="_blank" aria-label="LinkedIn">
+                            <div class="link-icon">🌟</div>
+                            <div class="link-text">Professional Portal</div>
+                            <div class="link-title">LinkedIn</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://podcasts.apple.com/us/podcast/barside-chats/id1514279980" class="cosmic-link" rel="noreferrer" target="_blank" aria-label="Podcast">
+                            <div class="link-icon">🎙️</div>
+                            <div class="link-text">Cosmic Transmissions</div>
+                            <div class="link-title">Podcast</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create subtle stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 80; // Fewer stars for cleaner look
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 4 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize
+        createStars();
+
+        // Add subtle interaction effects
+        document.querySelectorAll('.cosmic-link').forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                link.style.transform = 'translateY(-4px)';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                link.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
