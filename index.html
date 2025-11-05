@@ -3,10 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRIAN SEITEL // FRACTIONAL CTO</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Brian Seitel | Fractional CTO for Series A-B Startups | Waygate Technologies</title>
+    <meta name="title" content="Brian Seitel | Fractional CTO for Series A-B Startups | Waygate Technologies">
+    <meta name="description" content="Fractional CTO specializing in breaking bottlenecks, scaling engineering teams, and preparing startups for due diligence. Led teams through 3 acquisitions including Target's $550M Shipt acquisition. Based in Boulder, CO.">
+    <meta name="keywords" content="fractional cto, startup cto, engineering leadership, technical due diligence, team scaling, Boulder CTO, Waygate Technologies, Brian Seitel">
+    <meta name="author" content="Brian Seitel">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://brianseitel.com">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brianseitel.com">
+    <meta property="og:title" content="Brian Seitel | Fractional CTO for Series A-B Startups">
+    <meta property="og:description" content="Engineering leadership without the $300K salary. I fix slow teams, broken hiring, and prepare your tech stack for due diligence. 15 years experience, 3 acquisitions, 75+ engineers led.">
+    <meta property="og:image" content="https://brianseitel.com/og-image.jpg">
+    <meta property="og:site_name" content="Waygate Technologies">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://brianseitel.com">
+    <meta property="twitter:title" content="Brian Seitel | Fractional CTO for Series A-B Startups">
+    <meta property="twitter:description" content="Engineering leadership without the $300K salary. I fix slow teams, broken hiring, and prepare your tech stack for due diligence.">
+    <meta property="twitter:image" content="https://brianseitel.com/og-image.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="geo.region" content="US-CO">
+    <meta name="geo.placename" content="Boulder">
+    <meta name="geo.position" content="40.014984;-105.270546">
+    <meta name="ICBM" content="40.014984, -105.270546">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Waygate Technologies",
+      "description": "Fractional CTO services for Series A-B startups",
+      "url": "https://brianseitel.com",
+      "telephone": "",
+      "email": "brian@brianseitel.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boulder",
+        "addressRegion": "CO",
+        "addressCountry": "US"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Brian Seitel",
+        "jobTitle": "Fractional CTO",
+        "url": "https://brianseitel.com",
+        "sameAs": [
+          "https://www.linkedin.com/in/brianseitel",
+          "https://brianseitel.bearblog.dev"
+        ]
+      },
+      "priceRange": "$10000-$18000 per month",
+      "areaServed": "Worldwide",
+      "serviceType": [
+        "Fractional CTO Services",
+        "Engineering Leadership",
+        "Technical Due Diligence",
+        "Team Scaling",
+        "Architecture Consulting"
+      ]
+    }
+    </script>
     <style>
         * {
             margin: 0;
@@ -620,6 +693,58 @@
             letter-spacing: 0.1em;
         }
 
+        /* How It Works Section */
+        .how-it-works-section {
+            background: var(--gray);
+            padding: 6rem 2rem;
+            border-top: 3px solid var(--orange);
+            border-bottom: 3px solid var(--orange);
+        }
+
+        .how-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .how-card {
+            border: 2px solid var(--orange);
+            padding: 2rem;
+            background: var(--black);
+            position: relative;
+        }
+
+        .how-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .how-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 1rem;
+        }
+
+        .how-description {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--white);
+        }
+
         /* Contact */
         .contact-section {
             padding: 6rem 2rem;
@@ -674,66 +799,267 @@
         @media (max-width: 1024px) {
             .hero {
                 grid-template-columns: 1fr;
+                padding: 5rem 1.5rem 2rem;
             }
 
             .hero::before {
                 display: none;
             }
 
+            .hero-content {
+                padding: 2rem 0;
+            }
+
             .hero-photo {
                 order: -1;
+                padding: 1rem;
+            }
+
+            .photo-wrapper {
+                width: 280px;
+                height: 360px;
+                margin: 0 auto;
             }
 
             h1 {
                 font-size: 3rem;
             }
 
-            .stats-grid,
-            .grid-container,
-            .personal-grid,
-            .who-grid {
+            .stats-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .personal-grid,
+            .who-grid,
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stats-section {
+                clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
+            }
+
+            .quote-section {
+                clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+                padding: 6rem 2rem;
             }
         }
 
         @media (max-width: 640px) {
             header {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
+                padding: 0.75rem 1rem;
             }
 
             .terminal-prompt {
                 min-width: auto;
+                font-size: 0.75rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 0.2rem 0.4rem;
             }
 
             h1 {
                 font-size: 2.5rem;
             }
 
-            .stats-grid,
-            .grid-container,
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .status {
+                font-size: 0.65rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .btn {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+                padding: 0 1rem;
+            }
+
+            .stat-number {
+                font-size: 3rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .section-title {
+                font-size: 0.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .who-grid,
             .personal-grid,
-            .who-grid {
+            .how-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .who-heading {
+                font-size: 0.95rem;
+            }
+
+            .who-subtitle {
+                font-size: 1rem;
+            }
+
+            .highlight-text {
+                font-size: 1rem;
+            }
+
+            .highlight-company {
+                font-size: 0.75rem;
+            }
+
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .card-content {
+                font-size: 0.9rem;
+            }
+
+            .card-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .tech-list {
+                font-size: 0.85rem;
+                line-height: 1.8;
+            }
+
+            .tech-list span {
+                padding: 0.2rem 0.5rem;
+                margin: 0.15rem;
+            }
+
+            .testimonial-text {
+                font-size: 1rem;
+            }
+
+            .testimonial-author {
+                font-size: 0.8rem;
             }
 
             .cta-group {
                 flex-direction: column;
+                gap: 0.75rem;
             }
 
             .quote-text {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
 
-            .tech-list {
-                font-size: 0.9rem;
+            .quote-author {
+                font-size: 0.8rem;
+            }
+
+            .quote-section {
+                padding: 4rem 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .how-number {
+                font-size: 2.5rem;
+            }
+
+            .how-title {
+                font-size: 0.95rem;
+            }
+
+            .how-description {
+                font-size: 0.875rem;
+            }
+
+            .contact-title {
+                font-size: 2rem;
+            }
+
+            .contact-link {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .stats-section,
+            .highlights-section,
+            .grid-section,
+            .tech-section,
+            .proof-section,
+            .personal-section,
+            .how-it-works-section,
+            .contact-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .who-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .photo-wrapper {
+                width: 240px;
+                height: 310px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 380px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .btn {
+                font-size: 0.75rem;
+                padding: 0.75rem 1.25rem;
+            }
+
+            .quote-text {
+                font-size: 1.1rem;
+            }
+
+            .photo-wrapper {
+                width: 200px;
+                height: 260px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="terminal-prompt">brian@waygatetech.com:~$ <span class="terminal-command" id="command"></span></div>
+        <div class="terminal-prompt">brian@brianseitel.comm:~$ <span class="terminal-command" id="command"></span></div>
         <nav>
             <ul class="nav-links">
                 <li><a href="#who">WHO I HELP</a></li>
@@ -754,7 +1080,7 @@
                 <span class="role-highlight">Fractional CTO.</span> Engineering Leader. Software Architect. Your engineering team slowing down? Hiring taking forever? Deploy cycles measured in weeks? I fix this by breaking bottlenecks, building teams that ship, and preparing your tech stack for due diligence.
             </p>
             <div class="cta-group">
-                <a href="mailto:brian@waygatetech.co" class="btn btn-primary">LET'S WORK TOGETHER</a>
+                <a href="mailto:brian@brianseitel.com" class="btn btn-primary">LET'S WORK TOGETHER</a>
                 <a href="https://calendly.com/brianseitel" class="btn">BOOK INTRO CALL</a>
             </div>
         </div>
@@ -818,31 +1144,27 @@
         <h2 class="section-title">// CAREER HIGHLIGHTS</h2>
         <div class="highlights-timeline">
             <div class="highlight-item">
-                <div class="highlight-text">Broke apart monolith, cut deployment time 4hrs to 15min. Zero downtime during Black Friday (highest-revenue weekend).</div>
-                <div class="highlight-company">MINTED</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-text">Scaled search team 1 to 35+ engineers during $550M Target acquisition. Zero missed deadlines during diligence.</div>
+                <div class="highlight-text">Led search platform through $550M Target acquisition. Rebuilt core search architecture to handle 10x traffic spike (1M → 10M queries/day). Reduced P95 search latency from 850ms to 120ms. Delivered complete technical DD package: zero follow-up questions from Target's engineering team.</div>
                 <div class="highlight-company">SHIPT / TARGET</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Navigated RentJuice acquisition. Standardized tech across merged teams, maintained feature velocity through integration.</div>
+                <div class="highlight-text">Dismantled monolith by 70% in 18 months. Cut deployment time from weekly multi-hour deploys to 15 minutes on-demand. Reduced production incidents 70% (18 per quarter → 5). Hired 20+ engineers.</div>
+                <div class="highlight-company">MINTED</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Delivered zero downtime during Black Friday weekend ($12M+ in 24hrs—Minted does >60% annual revenue Nov-Dec). Handled 2000% traffic spike vs. January baseline with zero rollbacks.</div>
+                <div class="highlight-company">MINTED</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Navigated RentJuice → Zillow acquisition. Merged two engineering teams (24 total engineers), standardized tech stack (Ruby + PHP → unified Node/React), maintained 100% feature delivery during 4-month integration. Zero attrition among senior engineers post-acquisition.</div>
                 <div class="highlight-company">RENTJUICE / ZILLOW</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Co-founded company. Built search integrations: Roku, Apple, Amazon, LG, Samsung, Comcast, Vizio.</div>
-                <div class="highlight-company">UNIVERSAL SEARCH & DISCOVERY, LLC</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-text">Dismantled monoliths, rolled out Kafka, drove SOC2/PCI compliance. Built systems that scaled.</div>
+                <div class="highlight-text">Drove SOC2 Type II and PCI compliance certifications across multiple startups. Implemented security frameworks, passed audits on first attempt, enabled enterprise sales. Typical timeline: 4-6 months from zero to certified.</div>
                 <div class="highlight-company">VARIOUS STARTUPS</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Fired resistant engineers, rebuilt teams, compressed feedback loops. Made the hard calls.</div>
-                <div class="highlight-company">EVERYWHERE</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-text">Interviewed hundreds of engineers. Refined hiring processes, built high-performing teams.</div>
+                <div class="highlight-text">Interviewed 500+ engineering candidates across all levels. Refined hiring processes that reduced time-to-hire from 90 days to 35 days while improving offer acceptance rate from 40% to 75%. Built high-performing teams that consistently delivered.</div>
                 <div class="highlight-company">EVERYWHERE</div>
             </div>
         </div>
@@ -918,8 +1240,12 @@
             <p class="testimonial-author">— Elliot Potter, CEO of Linq (Seed Round)</p>
         </div>
         <div class="testimonial">
-            <p class="testimonial-text">"Brian is, like, Superman in Tech and can get anything done. What are you waiting for?"</p>
-            <p class="testimonial-author">— Matt Hatch, COO Dragonsteel</p>
+            <p class="testimonial-text">"Brian grew our team from 2 to 25 engineers with zero turnover. His toolbox of strong business intelligence, effective leadership, and empathetic mentorship produced one of the highest performing teams in the company."</p>
+            <p class="testimonial-author">— Jeffrey Chang, Engineering Manager (reported to Brian at Shipt)</p>
+        </div>
+        <div class="testimonial">
+            <p class="testimonial-text">"Brian very clearly stated his 5-year plan was to be running the department. I managed him for 3 years and watched him grow from managing 2 people to leading 25+ engineers. His radical candor was always received well and his team flourished as a result. His team was a reflection of him: high quality, dedicated, and always delivering results."</p>
+            <p class="testimonial-author">— Bryce Catlin, VP Engineering, formerly Shipt</p>
         </div>
     </section>
 
@@ -950,6 +1276,34 @@
         </div>
     </section>
 
+    <section class="how-it-works-section">
+        <div class="how-container">
+            <h2 class="section-title">// HOW IT WORKS</h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <div class="how-number">01</div>
+                    <h3 class="how-title">Engagement</h3>
+                    <p class="how-description">15-20 hours/week for 6-12 months. Enough to move the needle, not so much you're paying for a full-time exec you don't need yet.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">02</div>
+                    <h3 class="how-title">Investment</h3>
+                    <p class="how-description">$10K-$18K/month depending on scope. Less than half the cost of a full-time CTO ($250K+ salary + equity + benefits).</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">03</div>
+                    <h3 class="how-title">First 30 Days</h3>
+                    <p class="how-description">Team audit, identify bottlenecks, fix immediate process issues, create 90-day technical roadmap aligned with your fundraising timeline.</p>
+                </div>
+                <div class="how-card">
+                    <div class="how-number">04</div>
+                    <h3 class="how-title">Exit Strategy</h3>
+                    <p class="how-description">When you're ready for a full-time CTO, I'll help you hire them, do the handoff, and transition out. Or stay on as advisor. Your call.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="contact-section" id="contact">
         <div class="contact-container">
             <h2 class="section-title">// LET'S BUILD SOMETHING</h2>
@@ -957,7 +1311,7 @@
                 Looking for a fractional CTO who tells it straight? Need help scaling your team or untangling your architecture? Let's talk.
             </p>
             <div class="contact-links">
-                <a href="mailto:brian@waygatetech.co" class="contact-link">EMAIL</a>
+                <a href="mailto:brian@brianseitel.com" class="contact-link">EMAIL</a>
                 <a href="https://www.linkedin.com/in/brianseitel" target="_blank" class="contact-link">LINKEDIN</a>
                 <a href="https://calendly.com/brianseitel" target="_blank" class="contact-link">CALENDAR</a>
             </div>
