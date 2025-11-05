@@ -269,6 +269,78 @@
             margin-top: 0.5rem;
         }
 
+        /* WHO I HELP Section - Two Column */
+        .who-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .who-content {
+            max-width: 550px;
+        }
+
+        .who-heading {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .who-dont .who-heading {
+            color: #999;
+            border-bottom-color: #999;
+        }
+
+        .who-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .who-dont .who-subtitle {
+            color: #ccc;
+        }
+
+        .who-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .who-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--white);
+        }
+
+        .who-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+        }
+
+        .who-dont .who-list li {
+            color: #ccc;
+        }
+
+        .who-dont .who-list li::before {
+            content: '✗';
+            color: #999;
+        }
+
         /* Career Highlights Timeline */
         .highlights-section {
             padding: 6rem 2rem;
@@ -426,6 +498,38 @@
         .tech-list span:hover {
             background: var(--orange);
             color: var(--black);
+        }
+
+        /* Proof Section */
+        .proof-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .testimonial:last-child {
+            border-bottom: none;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .testimonial-author {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--orange);
+            font-weight: 600;
         }
 
         /* Quote - EXTREME DIAGONAL */
@@ -586,7 +690,8 @@
 
             .stats-grid,
             .grid-container,
-            .personal-grid {
+            .personal-grid,
+            .who-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -607,7 +712,8 @@
 
             .stats-grid,
             .grid-container,
-            .personal-grid {
+            .personal-grid,
+            .who-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -630,7 +736,7 @@
         <div class="terminal-prompt">brian@waygatetech.com:~$ <span class="terminal-command" id="command"></span></div>
         <nav>
             <ul class="nav-links">
-                <li><a href="#highlights">HIGHLIGHTS</a></li>
+                <li><a href="#who">WHO I HELP</a></li>
                 <li><a href="#work">WORK</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
@@ -645,7 +751,7 @@
                 <span class="highlight">SEITEL</span>
             </h1>
             <p class="hero-description">
-                <span class="role-highlight">Fractional CTO.</span> Engineering Leader. Software Architect. Fifteen years helping teams scale from scrappy to IPO, transforming chaos into clarity, code into growth. Former <span class="role-highlight">VP of Engineering</span> at Minted.
+                <span class="role-highlight">Fractional CTO.</span> Engineering Leader. Software Architect. Your engineering team slowing down? Hiring taking forever? Deploy cycles measured in weeks? I fix this by breaking bottlenecks, building teams that ship, and preparing your tech stack for due diligence.
             </p>
             <div class="cta-group">
                 <a href="mailto:brian@waygatetech.co" class="btn btn-primary">LET'S WORK TOGETHER</a>
@@ -680,39 +786,63 @@
         </div>
     </section>
 
+    <section class="who-section" id="who">
+        <h2 class="section-title">// WHO I WORK WITH</h2>
+        <div class="who-grid">
+            <div class="who-content">
+                <h3 class="who-heading">WHO I HELP</h3>
+                <p class="who-subtitle">Series A-B startups ($2M-$20M raised) who need engineering leadership without the $300K salary.</p>
+                <p class="who-subtitle" style="margin-top: 1rem;">Best fit if you're:</p>
+                <ul class="who-list">
+                    <li>Scaling 5→30 engineers</li>
+                    <li>Preparing for Series B diligence</li>
+                    <li>Stuck at 2-week sprint cycles</li>
+                    <li>Between CTOs or can't afford one yet</li>
+                </ul>
+            </div>
+            <div class="who-content who-dont">
+                <h3 class="who-heading">WHO I DON'T HELP</h3>
+                <p class="who-subtitle">Not every engagement is the right fit. I'm transparent about when we shouldn't work together.</p>
+                <p class="who-subtitle" style="margin-top: 1rem;">Not a fit if you:</p>
+                <ul class="who-list">
+                    <li>Need full-time, on-site presence</li>
+                    <li>Want someone to just write code</li>
+                    <li>Aren't ready to make hard decisions</li>
+                    <li>Have <5 engineers (you need a senior dev, not a CTO)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
     <section class="highlights-section" id="highlights">
         <h2 class="section-title">// CAREER HIGHLIGHTS</h2>
         <div class="highlights-timeline">
             <div class="highlight-item">
-                <div class="highlight-text">Led search engineering department through acquisition, scaling team from 1 to 35+ engineers while maintaining velocity</div>
-                <div class="highlight-company">SHIPT / TARGET</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-text"><span class="role-highlight">Prism:</span> a high-throughput (1B+ records in hours) product data system built from scratch</div>
-                <div class="highlight-company">SHIPT</div>
-            </div>
-            <div class="highlight-item">
-                <div class="highlight-text">Dismantled monolith by 70%, achieved zero incidents during Black Friday after 3 months of observability tuning</div>
+                <div class="highlight-text">Broke apart monolith, cut deployment time 4hrs to 15min. Zero downtime during Black Friday (highest-revenue weekend).</div>
                 <div class="highlight-company">MINTED</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Navigated acquisition integration, standardized technology across merged teams, built platform for rapid feature development</div>
+                <div class="highlight-text">Scaled search team 1 to 35+ engineers during $550M Target acquisition. Zero missed deadlines during diligence.</div>
+                <div class="highlight-company">SHIPT / TARGET</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Navigated RentJuice acquisition. Standardized tech across merged teams, maintained feature velocity through integration.</div>
                 <div class="highlight-company">RENTJUICE / ZILLOW</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Co-founded company, built search integrations with Roku, Apple, Amazon, LG, Samsung, Comcast, Vizio, and others</div>
+                <div class="highlight-text">Co-founded company. Built search integrations: Roku, Apple, Amazon, LG, Samsung, Comcast, Vizio.</div>
                 <div class="highlight-company">UNIVERSAL SEARCH & DISCOVERY, LLC</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Dismantled monoliths, implemented search systems, rolled out Kafka infrastructure, drove SOC2 and PCI compliance</div>
+                <div class="highlight-text">Dismantled monoliths, rolled out Kafka, drove SOC2/PCI compliance. Built systems that scaled.</div>
                 <div class="highlight-company">VARIOUS STARTUPS</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Made hard calls: rebuilt teams, compressed feedback loops, and shipped products that scaled.</div>
+                <div class="highlight-text">Fired resistant engineers, rebuilt teams, compressed feedback loops. Made the hard calls.</div>
                 <div class="highlight-company">EVERYWHERE</div>
             </div>
             <div class="highlight-item">
-                <div class="highlight-text">Interviewed hundreds of engineers, refining hiring processes and building high-performing teams</div>
+                <div class="highlight-text">Interviewed hundreds of engineers. Refined hiring processes, built high-performing teams.</div>
                 <div class="highlight-company">EVERYWHERE</div>
             </div>
         </div>
@@ -738,18 +868,19 @@
                     <p>Low-pressure social hangout app connecting IRL friends for spontaneous meetups. Built from the ground up with Swift/SwiftUI and live in the App Store.</p>
                     <p><a href="https://justhollerapp.com" target="_blank" style="color: var(--orange); text-decoration: none; border-bottom: 2px solid var(--orange);">justhollerapp.com →</a></p>
                 </div>
+                <div class="card-content">
+                    <h3>AI Tools</h3>
+                    <p>Developing internal tools that leverage AI to speed up coding, automate testing, and generate documentation. Aiming to reduce development time by 30%.</p>
+                </div>
             </div>
             <div class="grid-card" data-index="03">
                 <h3 class="card-title">EXPERTISE</h3>
                 <div class="card-content">
                     <ul class="card-list">
-                        <li>Dismantling Monoliths</li>
-                        <li>Service-Oriented Architecture</li>
-                        <li>Team Scaling (1-75+)</li>
-                        <li>Search Technology</li>
-                        <li>Developer Experience</li>
-                        <li>Hiring & Retention</li>
-                        <li>Observability & Monitoring</li>
+                        <li>Breaking Bottlenecks: Find where velocity dies (usually: unclear ownership, no code review process, or technical debt paralysis)</li>
+                        <li>Preparing for Diligence: Make sure you have good answers when VCs ask about your tech stack</li>
+                        <li>Hiring Without Chaos: Define real technical bars, interview effectively, close candidates who move the needle</li>
+                        <li>Making Hard Decisions: Cut projects that aren't working, restructure teams for clarity, tackle technical debt—I help you move forward when you're stuck</li>
                     </ul>
                 </div>
             </div>
@@ -773,6 +904,22 @@
             <span>AI TOOLS</span>
             <span>GRAFANA</span>
             <span>FEATURE FLAGGING</span>
+        </div>
+    </section>
+
+    <section class="proof-section">
+        <h2 class="section-title">// WHAT CLIENTS SAY</h2>
+        <div class="testimonial">
+            <p class="testimonial-text">"What truly makes Brian special isn't how much he cares about the tech, it's how much he cares about the people. He never stops pushing his team to grow technically, professionally, and personally. He isn't afraid to make hard decisions if he knows it is in his engineers' best interest in the long term."</p>
+            <p class="testimonial-author">— Nick Guertsen, Director of Engineering, Shipt</p>
+        </div>
+        <div class="testimonial">
+            <p class="testimonial-text">"Brian is the rare combination of extremely intelligent, hard working, and easy to talk to. I've seen him tackle complex problems with utmost confidence, and come up with a solution that he could articulate simply. He is a great motivator, and he cares deeply about his teams. He's down to earth and always willing to lend a helping hand. It would truly be a shame not to work with Brian!"</p>
+            <p class="testimonial-author">— Elliot Potter, CEO of Linq (Seed Round)</p>
+        </div>
+        <div class="testimonial">
+            <p class="testimonial-text">"Brian is, like, Superman in Tech and can get anything done. What are you waiting for?"</p>
+            <p class="testimonial-author">— Matt Hatch, COO Dragonsteel</p>
         </div>
     </section>
 
