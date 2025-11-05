@@ -1,112 +1,858 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <title>Brian Seitel</title>
-  <style>
-    html {
-      height: 95%
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRIAN SEITEL // FRACTIONAL CTO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      height: 95%;
-      min-height: 100%;
-      text-align: center;
-      color: #401919
-    }
+        :root {
+            --black: #000000;
+            --white: #FFFFFF;
+            --orange: #FFB84D;
+            --gray: #1a1a1a;
+        }
 
-    .container {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .item .greeting {
-      margin: 0 auto;
-      font-size: 15px;
-      font-variant: small-caps;
-      font-family: 'Cinzel', sans-serif
-    }
+        /* Terminal Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--black);
+            border-bottom: 2px solid var(--orange);
+            padding: 1rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .item .name {
-      font-family: 'Fjalla One', serif;
-      margin: 0 auto
-    }
+        .terminal-prompt {
+            color: var(--orange);
+            font-size: 0.9rem;
+            min-width: 300px;
+        }
 
-    .item .about {
-      margin: 25px auto
-    }
+        .terminal-prompt::before {
+            content: '> ';
+        }
 
-    .item .attributes {
-      margin: 0 auto;
-      font-family: 'Cinzel', sans-serif
-    }
+        .terminal-command {
+            display: inline-block;
+            min-width: 250px;
+        }
 
-    .item ul {
-      padding: 0;
-      list-style-type: none;
-      margin: auto
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
 
-    .item li {
-      float: left;
-      padding: 0 15px
-    }
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border: 2px solid transparent;
+            padding: 0.25rem 0.5rem;
+            transition: none;
+        }
 
-    .item .links li {
-      width: 165px;
-      font-family: 'Cinzel', sans-serif;
-    }
+        .nav-links a:hover {
+            border: 2px solid var(--orange);
+            background: var(--orange);
+            color: var(--black);
+        }
 
-    .item .links a {
-      color: #6e3636;
-    }
-  </style>
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
 
-  <link rel="canonical" href="https://brianseitel.com" />
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 35%;
+            width: 3px;
+            height: 100%;
+            background: var(--orange);
+        }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta name="description"
-    content="golang guru. elasticsearch consultant. runner. writer of novels. podcast host. one man, many facets: brian seitel.">
+        .hero-content {
+            padding: 4rem 4rem 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .status {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 2rem;
+            border: 2px solid var(--orange);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            width: fit-content;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 2rem;
+            letter-spacing: -0.03em;
+        }
+
+        h1 .highlight {
+            color: var(--orange);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .hero-description .role-highlight {
+            color: var(--orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 2px solid var(--orange);
+            background: transparent;
+            color: var(--white);
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: none;
+        }
+
+        .btn:hover {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        .btn-primary:hover {
+            background: var(--black);
+            color: var(--orange);
+        }
+
+        /* Photo Container */
+        .hero-photo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 350px;
+            height: 450px;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 3px solid var(--orange);
+            z-index: 1;
+        }
+
+        .photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+            position: relative;
+            z-index: 2;
+            mix-blend-mode: lighten;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--orange);
+            color: var(--black);
+            padding: 6rem 2rem;
+            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+            position: relative;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 15px,
+                rgba(0, 0, 0, 0.03) 15px,
+                rgba(0, 0, 0, 0.03) 30px
+            );
+            pointer-events: none;
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.5rem;
+        }
+
+        /* Career Highlights Timeline */
+        .highlights-section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .highlights-timeline {
+            border-left: 3px solid var(--orange);
+            padding-left: 0;
+        }
+
+        .highlight-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .highlight-item::before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--orange);
+            border: 2px solid var(--black);
+        }
+
+        .highlight-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .highlight-company {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--orange);
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+
+        .section-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 3rem;
+            border-bottom: 2px solid var(--orange);
+            padding-bottom: 1rem;
+        }
+
+        /* Grid Section for Now/Projects */
+        .grid-section {
+            background: var(--gray);
+            padding: 6rem 2rem;
+        }
+
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .grid-card {
+            border: 2px solid var(--orange);
+            padding: 2rem;
+            position: relative;
+        }
+
+        .grid-card::before {
+            content: attr(data-index);
+            position: absolute;
+            top: -1px;
+            left: -1px;
+            background: var(--orange);
+            color: var(--black);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            font-weight: 700;
+        }
+
+        .card-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .card-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--orange);
+        }
+
+        .card-content p {
+            margin-bottom: 1rem;
+        }
+
+        .card-list {
+            list-style: none;
+        }
+
+        .card-list li {
+            padding-left: 1rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .card-list li::before {
+            content: '//';
+            position: absolute;
+            left: 0;
+            color: var(--orange);
+        }
+
+        /* Tech Stack - Inline Brutalist */
+        .tech-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 2px solid var(--orange);
+            border-bottom: 2px solid var(--orange);
+        }
+
+        .tech-list {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            line-height: 2;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tech-list span {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            border: 2px solid var(--orange);
+            transition: none;
+            cursor: default;
+        }
+
+        .tech-list span:hover {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        /* Quote - EXTREME DIAGONAL */
+        .quote-section {
+            background: var(--orange);
+            color: var(--black);
+            padding: 8rem 2rem;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            margin: 4rem 0;
+            position: relative;
+        }
+
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(0, 0, 0, 0.03) 10px,
+                rgba(0, 0, 0, 0.03) 20px
+            );
+            pointer-events: none;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .quote-text {
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+        }
+
+        .quote-author {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Personal Details Section */
+        .personal-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 2px solid var(--orange);
+        }
+
+        .personal-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .personal-item {
+            border: 2px solid var(--white);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: none;
+        }
+
+        .personal-item:hover {
+            border-color: var(--orange);
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        .personal-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .personal-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Contact */
+        .contact-section {
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--white);
+            text-decoration: none;
+            border: 2px solid var(--orange);
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            transition: none;
+        }
+
+        .contact-link:hover {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 2px solid var(--orange);
+            padding: 2rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero::before {
+                display: none;
+            }
+
+            .hero-photo {
+                order: -1;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .stats-grid,
+            .grid-container,
+            .personal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .terminal-prompt {
+                min-width: auto;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid,
+            .grid-container,
+            .personal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .quote-text {
+                font-size: 1.5rem;
+            }
+
+            .tech-list {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
-</head>
-
 <body>
-  <div class="container">
-    <div class="item">
-      <h4 class="greeting">Hi there! My name is</h4>
-      <h1 class="name">Brian Seitel</h1>
+    <header>
+        <div class="terminal-prompt">brian@waygatetech.com:~$ <span class="terminal-command" id="command"></span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#highlights">HIGHLIGHTS</a></li>
+                <li><a href="#work">WORK</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
 
-      <div class="about">
-        <p class="attributes">
-          VP of Engineering
-        </p>
-        <p class="attributes">
-          Writer of Novels &middot;
-          Avid Runner
-        </p>
-        <p class="attributes">
-          Golang Guru &middot;
-          Elasticsearch Consultant &middot;
-          Podcast Host
-        </p>
-      </div>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="status">AVAILABLE FOR SELECT PARTNERSHIPS</div>
+            <h1>
+                BRIAN<br>
+                <span class="highlight">SEITEL</span>
+            </h1>
+            <p class="hero-description">
+                <span class="role-highlight">Fractional CTO.</span> Engineering Leader. Architect. Fifteen years turning chaos into systems—from acquisition to IPO, monolith to microservices, 1 person to 50. Previously <span class="role-highlight">VP Engineering</span> at Minted.
+            </p>
+            <div class="cta-group">
+                <a href="mailto:brian@waygatetech.co" class="btn btn-primary">START PROJECT</a>
+                <a href="https://calendly.com/brianseitel" class="btn">BOOK CALL</a>
+            </div>
+        </div>
+        <div class="hero-photo">
+            <div class="photo-wrapper">
+                <img src="brian-seitel.jpg" alt="Brian Seitel">
+            </div>
+        </div>
+    </section>
 
-      <div class="links">
-        <ul>
-          <li><a href="/blog" rel="noreferrer">Blog</a></li>
-          <li><a href="https://github.com/brianseitel" rel="noreferrer" target="_blank" aria-label="Github">Github</a>
-          </li>
-          <li><a href="https://www.linkedin.com/in/brianseitel/" rel="noreferrer" target="_blank"
-              aria-label="LinkedIn">LinkedIn</a< /li>
-          <li><a href="https://podcasts.apple.com/us/podcast/barside-chats/id1514279980" rel="noreferrer"
-              target="_blank" aria-label="Podcast">Podcast</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <link href='https://fonts.googleapis.com/css?family=Fjalla+One|Cinzel' rel='stylesheet' type='text/css'>
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">15</span>
+                <span class="stat-label">Years</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">People Led</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label">Acquisitions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Problems Solved</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="highlights-section" id="highlights">
+        <h2 class="section-title">// CAREER HIGHLIGHTS</h2>
+        <div class="highlights-timeline">
+            <div class="highlight-item">
+                <div class="highlight-text">Led search engineering department through acquisition, scaling team from 1 to 35+ engineers while maintaining velocity</div>
+                <div class="highlight-company">SHIPT / TARGET</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text"><span class="role-highlight">Prism:</span> a high-throughput (1B+ records in hours) product data system built from scratch</div>
+                <div class="highlight-company">SHIPT</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Dismantled monolith by 70%, achieved zero incidents during Black Friday after 3 months of observability tuning</div>
+                <div class="highlight-company">MINTED</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Navigated acquisition integration, standardized technology across merged teams, built platform for rapid feature development</div>
+                <div class="highlight-company">RENTJUICE / ZILLOW</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Dismantled monoliths, implemented search systems, rolled out Kafka infrastructure, drove SOC2 and PCI compliance</div>
+                <div class="highlight-company">VARIOUS STARTUPS</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Made hard decisions: mentored resistant senior engineers, compressed feedback loops, shipped products that scaled</div>
+                <div class="highlight-company">EVERYWHERE</div>
+            </div>
+            <div class="highlight-item">
+                <div class="highlight-text">Interviewed hundreds of engineers, refining hiring processes and building high-performing teams</div>
+                <div class="highlight-company">EVERYWHERE</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-section" id="work">
+        <div class="grid-container">
+            <div class="grid-card" data-index="01">
+                <h3 class="card-title">NOW</h3>
+                <div class="card-content">
+                    <ul class="card-list">
+                        <li>Building Holler, a low-pressure social hangout app for iOS</li>
+                        <li>Advising startups on technical strategy and team scaling</li>
+                        <li>Creating AI tools to accelerate product development</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-card" data-index="02">
+                <h3 class="card-title">PROJECTS</h3>
+                <div class="card-content">
+                    <h3>Holler</h3>
+                    <p>Low-pressure social hangout app connecting IRL friends for spontaneous meetups. Built from the ground up with Swift/SwiftUI and live in the App Store.</p>
+                    <p><a href="https://justhollerapp.com" target="_blank" style="color: var(--orange); text-decoration: none; border-bottom: 2px solid var(--orange);">justhollerapp.com →</a></p>
+                </div>
+            </div>
+            <div class="grid-card" data-index="03">
+                <h3 class="card-title">EXPERTISE</h3>
+                <div class="card-content">
+                    <ul class="card-list">
+                        <li>Platform Architecture</li>
+                        <li>Team Scaling (1-50+)</li>
+                        <li>Search Technology</li>
+                        <li>Technical Strategy</li>
+                        <li>Developer Experience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-section">
+        <h2 class="section-title">// TECH STACK</h2>
+        <div class="tech-list">
+            <span>GO</span>
+            <span>KAFKA</span>
+            <span>REACT</span>
+            <span>NEXT.JS</span>
+            <span>SWIFT</span>
+            <span>SWIFTUI</span>
+            <span>POSTGRESQL</span>
+            <span>ELASTICSEARCH</span>
+            <span>AWS</span>
+            <span>MICROSERVICES</span>
+            <span>SEARCH</span>
+            <span>AI TOOLS</span>
+            <span>GRAFANA</span>
+            <span>FEATURE FLAGGING</span>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="quote-container">
+            <blockquote class="quote-text">
+                "Indecision is worse than making the wrong choice. At least with action, you learn something."
+            </blockquote>
+            <cite class="quote-author">— James S.A. Corey, The Expanse</cite>
+        </div>
+    </section>
+
+    <section class="personal-section">
+        <h2 class="section-title">// AWAY FROM KEYBOARD</h2>
+        <div class="personal-grid">
+            <div class="personal-item">
+                <span class="personal-label">Sci-Fi/Fantasy</span>
+            </div>
+            <div class="personal-item">
+                <span class="personal-label">Guitar</span>
+            </div>
+            <div class="personal-item">
+                <span class="personal-label">Running w/ Dog</span>
+            </div>
+            <div class="personal-item">
+                <span class="personal-label">CO Mountains</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">// LET'S BUILD SOMETHING</h2>
+            <p class="hero-description" style="margin: 2rem auto;">
+                Looking for a fractional CTO who tells it straight? Need help scaling your team or untangling your architecture? Let's talk.
+            </p>
+            <div class="contact-links">
+                <a href="mailto:brian@waygatetech.co" class="contact-link">EMAIL</a>
+                <a href="https://www.linkedin.com/in/brianseitel" target="_blank" class="contact-link">LINKEDIN</a>
+                <a href="https://calendly.com/brianseitel" target="_blank" class="contact-link">CALENDAR</a>
+            </div>
+            <p style="margin-top: 3rem; color: #999;">
+                Boulder, Colorado · Mountain Time (GMT-7)
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 BRIAN SEITEL // WAYGATE TECHNOLOGIES, LLC</p>
+    </footer>
+
+    <script>
+        // Animated terminal commands
+        const commands = [
+            'ls -la ~/projects',
+            'cd /experience/minted',
+            'cat README.md',
+            'git commit -m "shipped it"',
+            'brew install decisiveness',
+            'docker compose up',
+            'npm run build',
+            'kubectl get pods',
+            'terraform apply',
+            'grep -r "technical debt"',
+            'vim architecture.md',
+            'make deploy'
+        ];
+
+        let currentCommandIndex = 0;
+        const commandElement = document.getElementById('command');
+
+        function typeCommand(command, index = 0) {
+            if (index < command.length) {
+                commandElement.textContent = command.substring(0, index + 1);
+                setTimeout(() => typeCommand(command, index + 1), 80);
+            } else {
+                // Wait, then clear (simulate hitting enter)
+                setTimeout(() => {
+                    commandElement.textContent = '';
+                    currentCommandIndex = (currentCommandIndex + 1) % commands.length;
+                    setTimeout(() => typeCommand(commands[currentCommandIndex]), 300);
+                }, 2000);
+            }
+        }
+
+        // Start the animation
+        typeCommand(commands[0]);
+    </script>
 </body>
-
 </html>
